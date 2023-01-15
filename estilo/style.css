@@ -1,0 +1,254 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+/*
+@import para importar fontes do google fontes
+*/
+
+@font-face {
+    font-family: 'Android';
+    src: url('../fontes/idroid.otf') format('opentype');
+    font-weight: normal;
+}
+
+/*
+@font-face, para importar fontes baixadas .otf
+*/
+
+:root{
+
+    /*
+    :ROOT, serve para definir o que será configurado para toda a pagina, neste exemplo, usou para criar cores ao apertar CTRL + ESPAÇO.
+    Sempre inicia com -- + nome, neste caso --cor01: e a cor.
+    Isto pode ser feito para cor, fontes, etc...
+    */
+
+    
+    --cor0: #ebe5c5;
+    --cor1: #83E1AD;
+    --cor2: #3DDC84;
+    --cor3: #2FA866;
+    --cor4: #1a5c37;
+    --cor5: #063D1E;
+
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+    --fonte-destaque: 'Bebas Neue', cursive;
+    --fonte-android: 'Android', cursive;
+
+}
+
+*{
+
+    /*
+    * (asterisco), serve para fazer uma configuração global para todo código. Ao fazer isso, por padrão, toda TAG inserida, será padrão em todo site. Depois só ir definindo uma a uma.
+    */
+
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-color: var(--cor0);
+    font-family: var(--fonte-padrao);
+}
+
+header{
+    background-image: linear-gradient(to bottom, var(--cor3), var(--cor5));
+    min-height: 150px;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+header > h1{
+    color: white;
+    font-family: var(--fonte-destaque);
+    font-size: 3em;
+    font-weight: normal;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.514);
+}
+
+header > p{
+    color: white;
+    font-family: var(--fonte-padrao);
+    font-size: 1.2em;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.534);
+    max-width: 600px;
+    margin: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+nav{
+    background-color: var(--cor5);
+    box-shadow: rgba(0, 0, 0, 0.445) 0px 10px 10px;
+    padding: 10px;
+}
+
+nav > a{
+    text-decoration: none;
+    color: var(--cor1);
+    font-weight: bold;
+    padding: 10px;
+    }
+
+nav > a:hover{ /*:HOVER, para que ao passar o mouse, ele faça alguma animação de acordo com a configuração*/
+    background-color: var(--cor2);
+    color: var(--cor5);
+    border-radius: 5px;
+    transition-duration: .5s; /*TRANSITION-DURATION, ao passar o mouse, ele faz um "esmanhecer"*/
+}
+
+main{
+    min-width: 300px; /*qual será o tamanho minimo do conteudo a ser exibido na tela*/
+    max-width: 1000px; /*qual será o tamanho maximo doconteudo a ser exibido na tela*/
+    padding: 20px;
+    margin: auto;
+    margin-bottom: 30px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.418);
+    border-bottom-left-radius: 20px; /*criar bordas somente na parte de baixo do bloco*/
+    border-bottom-right-radius: 20px; /*criar bordas somente na parte de baixo do bloco*/
+}
+
+
+
+main img{
+    width: 100%; /*com esta configuração, as imagens irão se adaptar conforme o tamanho da tela, sem criar barra de rolagem*/
+}
+
+main img.android{
+    max-width: 350px;
+    display: block; /*fazer com que a imagem vire um bloco, pois não consegue deixar ela com MARGIN: AUTO (pois isto só é possivel com conteudo de texto). */
+    margin: auto;
+}
+
+div.video{
+    /*
+    Quando o vídeo é importado do youtube ou vimeo, por padrão é complexo fazer com que ele se adapte as nossas configurações.
+    Neste exemplo, temos que criar uma DIV e abrir uma CLASS para estilizar.
+    Colocando a cor de fundo, as margens zeradas são para que na esquerda e direita (a ordem é TOP-RIGHT-BOTTOM-LEFT) a box fique justa ao BODY.
+    o PADDING é para distanciar do ASIDE, para não ficar junto, só por conta da aparencia mesmo.
+    POSITION: RELATIVE, é a configuração que usaremos para o video (elemento), para que ele possa aceitar as configurações de TOP/RIGHT/BOTTOM/LEFT.
+    */
+    background-color: var(--cor5);
+    margin: 0px -20px 20px -20px;
+    padding: 20px;
+    padding-bottom: 56.5%;
+    position: relative;
+}
+
+div.video > iframe{
+    /*
+    POSITION: ABSOLUTE, consigo configurar qualquer elemento utilizando WIDTH e HEIGHT.
+    O resultado é este em nosso desafio, do video ficar centralizado.
+    */
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+
+main h1{
+    color: var(--cor5);
+    font-family: var(--fonte-android);
+    font-weight: normal;
+}
+
+main h2{
+    font-family: var(--fonte-android);
+    font-size: 1.3em;
+    font-weight: normal;
+    text-indent: 10px;
+    color: var(--cor4);
+    background-image: linear-gradient(to right, var(--cor2), transparent);
+}
+
+main p{
+    margin: 15px 0px;
+    text-align: justify;
+    text-indent: 30px;
+    line-height: 2;
+}
+
+main strong{
+    color: var(--cor4);
+    font-weight: bold;
+    padding: 2px 6px;
+}
+
+main a{
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--cor5);
+    background-color: var(--cor1);
+    padding: 2px 6px;
+}
+
+main a:hover{
+    text-decoration: underline;
+    color: var(--cor4);
+}
+
+a.externo::after{ 
+    /*
+    ::AFTER, fazer algo depois.
+    */
+    content: '\00a0\1f517';
+}
+
+aside{
+    background-color: var(--cor1);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.288);
+}
+
+aside > h3{
+    background-color: var(--cor4);
+    color: white;
+    padding: 10px;
+    margin: -10px -10px 0px; 
+    /*
+    Quando você coloca as propriedades negativas neste exemplo, a margem do H3, encosta na margem do BACKGROUND-COLOR
+    */
+    border-radius: 10px 10px 0px 0px;
+}
+
+aside > ul{
+    list-style-type: '\2714\00A0\00A0';
+    /*
+    LIST-STYLE-TYPE, você pode trocar o icone padrão do LI, sempre escrever com ASPAS '', e \. Para dar espaço nesta configuração, utiliza \00A0, quanto mais \00A0, mais espaço.
+    '\2714\00A0\00A0'
+    */
+    list-style-position: inside;
+    /*
+    LIST-STYLE-POSITION: INSIDE ou OUTSIDE, voce determina se o conteudo ficará dentro ou fora da caixa.
+    */
+    columns: 2;
+    /*
+    COLUMNS, voce determina quantas colunas poderá ter dentro da caixa
+    */
+}
+
+footer{
+    background-color: var(--cor5);
+    color: white;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 5px;    
+}
+
+footer a{
+    text-decoration: none;
+    font-weight: bolder;
+    color: white
+}
+
+footer a:hover{
+    color: var(--cor1);
+    text-decoration: underline;
+}
